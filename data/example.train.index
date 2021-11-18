@@ -1,1 +1,1 @@
-gs://your-bucket/datasets/your.tfrecords
+gs://ideaengine_bucket/datasets/qa/train.tfrecords
