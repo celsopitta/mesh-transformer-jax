@@ -7,10 +7,10 @@ RUN apt update && \
 WORKDIR /app/
 COPY . /app/
 RUN /usr/local/bin/python -m pip install --upgrade pip
-RUN git clone https://github.com/kingoflolz/mesh-transformer-jax 
+RUN git clone https://github.com/celsopitta/mesh-transformer-jax.git 
 RUN pip install torch==1.10.0
 RUN pip install -r mesh-transformer-jax/requirements.txt 
-RUN pip install mesh-transformer-jax/ jax==0.2.12 
+RUN pip install mesh-transformer-jax/ jax==0.2.21 
 RUN pip install fastapi uvicorn requests aiofiles aiohttp 
 RUN ln -s /app/start.sh /start.sh
 
@@ -19,5 +19,7 @@ ENV PATH $PYTHONPATH:$PATH
 ENV TOKENIZERS_PARALLELISM=true
 EXPOSE 80
 
-CMD ["/start.sh"]
+#CMD ["/start.sh"]
+
+CMD /bin/bash
 
