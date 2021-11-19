@@ -39,7 +39,7 @@ while(index<len(context)):
 
     tupla = '<|endoftext|>context: '+str(context[index]).replace("“","\'").replace("\"","\'").replace("”","\'").strip() + \
             '\nquestion: ' +        str(questions[index]).replace("“","\'").replace("\"","\'").replace("”","\'").strip() + \
-            '\nanswer: ' +          str(answers[index]).replace("“","\'").replace("\"","\'").replace("”","\'").strip() + '<|endoftext|>'
+            '\nanswer: ' +          str(answers[index]).replace("“","\'").replace("\"","\'").replace("”","\'").strip()
 
     if len(tupla) < 2048:
         ofile.write(tupla)
@@ -53,7 +53,7 @@ while(index<len(context)):
 
     index +=1
 
-
+ofile.write('<|endoftext|>')
 print("max len:", max_len)
 print("samples: {}\n".format(countv))
 print("discarted: ", countd)
