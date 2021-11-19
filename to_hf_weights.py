@@ -259,12 +259,12 @@ def read_npz(fpath: FluidPath):
         )
         assert isinstance(
             deserialized, np.lib.npyio.NpzFile
-        ), f"Not an npz file {type(deserialized)=} {f=}"
+        ), f"Not an npz file {type(deserialized)} {f}"
         # arrays are only loaded when accessed. So we need to access them before returning
         arrays = []
         for i in deserialized:
             arr = deserialized[i]
-            assert isinstance(arr, np.ndarray), f"Not a np.ndarray {type(arr)=} {f=}"
+            assert isinstance(arr, np.ndarray), f"Not a np.ndarray {type(arr)} {f}"
             arrays.append(arr)
         return arrays
 
@@ -318,7 +318,7 @@ def unshard_leave(
         x.dtype = jnp.bfloat16
 
     if DEBUG:
-        print(f"RESHARDING: {leave_name=} {x.shape=} {old_shape=}")  # type: ignore
+        print(f"RESHARDING: {leave_name} {x.shape} {old_shape}")  # type: ignore
 
     # transform sharded array to match old_shape
     x = reshard(
@@ -354,7 +354,7 @@ def save_pytree_as_hf(
 
     assert len(old_leave_shapes) == len(
         leave_names
-    ), f"{len(old_leave_shapes)=}  {len(leave_names)=}"
+    ), f"{len(old_leave_shapes)}  {len(leave_names)}"
     # get generator that emits all shards of leaves from npz files in reverse order
     loaded_shards_in = lazy_read_ckpt_shards(input_ckpt, shards_in, reverse=True)
 
