@@ -244,8 +244,8 @@ class CausalTransformer:
                                                                  ["batch", ...],
                                                                  ["batch", ...],
                                                                  ["batch", ...]),
-                                                        #out_axes=["batch", ...],
-                                                        out_axes=(["shard", "batch", ...], ["batch", ...]),
+                                                        out_axes=["batch", ...], # versao jax 0.2.16
+                                                        #out_axes=(["shard", "batch", ...], ["batch", ...]),  #jax 0.2.21
                                                         axis_resources={'shard': 'mp', 'batch': 'dp'})
 
         self.move_xmap = jax.experimental.maps.xmap(fun=lambda x, _: to_bf16(x),

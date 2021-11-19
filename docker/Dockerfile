@@ -10,7 +10,7 @@ RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN git clone https://github.com/celsopitta/mesh-transformer-jax.git 
 RUN pip install torch==1.10.0
 RUN pip install -r mesh-transformer-jax/requirements.txt 
-RUN pip install mesh-transformer-jax/ jax==0.2.21 
+RUN pip install mesh-transformer-jax/ jax==0.2.12
 RUN pip install fastapi uvicorn requests aiofiles aiohttp 
 RUN ln -s /app/start.sh /start.sh
 

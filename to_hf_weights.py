@@ -1,5 +1,7 @@
 ####
 # python to_hf_weights.py --input-ckpt ./step_383500 --config ./configs/6B_roto_256.json --output-path ./gpt-j-6B --cpu --dtype fp32
+# python3 to_hf_weights.py --input-ckpt gs://ideaengine_bucket/ideaengine_qa/step_480 --config ./configs/ideaengine_qa.json --output-path gs://ideaengine_bucket/ideaengine_qahf --dtype fp32
+# python3 to_hf_weights.py --input-ckpt /data/training/step_480 --config ./configs/ideaengine_qa.json --output-path /data/ideaengine_qahf --dtype fp32
 ####
 
 import argparse

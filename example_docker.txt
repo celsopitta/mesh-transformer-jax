@@ -1,0 +1,1 @@
+docker run -v /home/celso/work:/work -v /mnt/datasets:/datasets -v /data:/data -v /mnt/datasets/tensorflow_datasets:/home/jax/tensorflow_datasets -it --rm --gpus device=0 -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix meshtransformerjax_tf:latest bash
