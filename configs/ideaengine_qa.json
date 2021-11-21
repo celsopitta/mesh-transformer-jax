@@ -13,11 +13,11 @@
     "gradient_accumulation_steps": 32,
   
     "warmup_steps": 15,
-    "anneal_steps": 1120,
+    "anneal_steps": 1411,
     "lr": 5e-5,
     "end_lr": 1e-5,
     "weight_decay": 0.1, 
-    "total_steps": 1135,
+    "total_steps": 1426,
   
     "tpu_size": 8,
   
@@ -32,10 +32,10 @@
     "eval_harness_tasks": [
     ],
   
-    "val_batches": 71,
-    "val_every": 120,
-    "ckpt_every": 120,
-    "keep_every": 120,
+    "val_batches": 131,
+    "val_every": 89,
+    "ckpt_every": 89,
+    "keep_every": 178,
   
     "name": "ideaengine-qa",
     "wandb_project": "ideaengine-qa",

@@ -29,14 +29,15 @@ def read_squad(path, include_impossible = True):
                                   '\nquestion: ' + question.strip() + \
                                   '\nanswer: ' + '<No Answer>')
                 else:
-                    for answer in qa['answers']:
+                    if len(qa['answers'])>0:
+                    #for answer in qa['answers']:
                         contexts.append(context)
                         questions.append(question)
-                        answers.append(answer['text'])
+                        answers.append(qa['answers'][0]['text'])
 
                         tuplas.append('context: ' + context.strip() + \
                                     '\nquestion: ' + question.strip() + \
-                                    '\nanswer: ' + answer['text'].strip())
+                                    '\nanswer: ' + qa['answers'][0]['text'].strip())
                 
     return contexts, questions, answers, tuplas
 

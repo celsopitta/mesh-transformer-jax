@@ -1,5 +1,6 @@
 # Have tested with a custom Ubuntu-1804 / Python 3.7 / Tensorflow 2.6.2 Base Image
 # Not tested with this image. 
+# docker run -v /home/celso/work:/work -v /mnt/datasets:/datasets -v /data:/data -v /mnt/datasets/tensorflow_datasets:/home/jax/tensorflow_datasets -it --rm --gpus device=0 -e DISPLAY=unix$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix meshtransformerjax_tf:latest bash
 FROM nvcr.io/nvidia/tensorflow:21.04-tf2-py3
 
 

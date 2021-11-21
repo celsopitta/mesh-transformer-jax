@@ -1,1 +1,1 @@
-gs://ideaengine_bucket/datasets/qa/train-squad2-4epochs_36340.tfrecords
+gs://ideaengine_bucket/datasets/qa/train-gptj-squadv2-winpossible-repack4_45496.tfrecords
