@@ -1,3 +1,5 @@
+#python3 create_finetune_tfrecords.py --preserve-data-order /datasets/Squad_2.0/gptj-squad_v2_train_noimpossible_oneanswer_seq1818.txt gptj-squadv2-noinpossible-oneanswer-seq1818
+#
 import argparse
 import os
 import re
