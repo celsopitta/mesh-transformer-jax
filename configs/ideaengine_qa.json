@@ -12,12 +12,12 @@
     "per_replica_batch": 1,
     "gradient_accumulation_steps": 32,
   
-    "warmup_steps": 10,
-    "anneal_steps": 927,
+    "warmup_steps": 18,
+    "anneal_steps": 1412,
     "lr": 5e-5,
     "end_lr": 1e-5,
     "weight_decay": 0.1, 
-    "total_steps": 937,
+    "total_steps": 1430,
   
     "tpu_size": 8,
   
@@ -32,10 +32,10 @@
     "eval_harness_tasks": [
     ],
   
-    "val_batches": 17,
+    "val_batches": 34,
     "val_every": 60,
     "ckpt_every": 60,
-    "keep_every": 180,
+    "keep_every": 240,
   
     "name": "ideaengine-qa",
     "wandb_project": "ideaengine-qa",

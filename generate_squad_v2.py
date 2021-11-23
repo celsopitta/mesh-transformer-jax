@@ -32,7 +32,7 @@ def write_file(file, tuples):
     max_answer = 0
     for tuple in tuples:
         
-        answer = '<No Answer>'
+        answer = 'Insufficient information to answer question.'
         if len(tuple['answers']['text']) > 0:
             answer = tuple['answers']['text'][0]
 
@@ -43,7 +43,7 @@ def write_file(file, tuples):
                     '\nquestion: ' + tuple['question'].strip() + \
                     '\nanswer: ' + answer.strip()
 
-        if len(train_tuple) < 2030:
+        if len(train_tuple) < 2034:
             file.write(train_tuple)
             countt+=1
 
@@ -88,11 +88,14 @@ def clean_duplicates(tuples, include_impossible=False):
 
     return train_limpo
 
-train_limpo = clean_duplicates(train_ds)
-validation_limpo = clean_duplicates(validation_ds)
+#train_limpo = clean_duplicates(train_ds)
+#validation_limpo = clean_duplicates(validation_ds)
 
-countt = write_limpo(o_train, train_limpo)
-countv = write_limpo(o_validation, validation_limpo)
+#countt = write_limpo(o_train, train_limpo)
+#countv = write_limpo(o_validation, validation_limpo)
+
+countt,_ = write_file(o_train, train_ds)
+countv,_ = write_file(o_validation, validation_ds)
 
 o_train.close()
 o_validation.close()
