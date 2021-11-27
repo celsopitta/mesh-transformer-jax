@@ -26,13 +26,33 @@ o_validation = open(f"{project_name}_validation_.txt", 'w')
 countv=0
 countt=0
 
+def write_possible_impossible(file, tuples):
+    countt=0
+    max_answer = 0
+    for tuple in tuples:
+        
+        answer = 'Impossible to answer.'
+        if len(tuple['answers']['text']) > 0:
+            answer = 'Possible to answer.'
+
+
+        train_tuple = '<|endoftext|>context: ' + tuple['context'].strip() + \
+                    '\nquestion: ' + tuple['question'].strip() + \
+                    '\nanswer: ' + answer.strip()
+
+        file.write(train_tuple)
+        countt+=1
+
+    file.write('<|endoftext|>')
+    return countt, max_answer
+
 
 def write_file(file, tuples):
     countt=0
     max_answer = 0
     for tuple in tuples:
         
-        answer = 'Insufficient information to answer question.'
+        answer = 'Impossible to answer question.'
         if len(tuple['answers']['text']) > 0:
             answer = tuple['answers']['text'][0]
 
@@ -42,10 +62,10 @@ def write_file(file, tuples):
         train_tuple = '<|endoftext|>context: ' + tuple['context'].strip() + \
                     '\nquestion: ' + tuple['question'].strip() + \
                     '\nanswer: ' + answer.strip()
+        
+        file.write(train_tuple)
 
-        if len(train_tuple) < 2034:
-            file.write(train_tuple)
-            countt+=1
+        countt+=1
 
     file.write('<|endoftext|>')
     return countt, max_answer
@@ -94,8 +114,11 @@ def clean_duplicates(tuples, include_impossible=False):
 #countt = write_limpo(o_train, train_limpo)
 #countv = write_limpo(o_validation, validation_limpo)
 
-countt,_ = write_file(o_train, train_ds)
-countv,_ = write_file(o_validation, validation_ds)
+#countt,_ = write_file(o_train, train_ds)
+#countv,_ = write_file(o_validation, validation_ds)
+
+countt,_ = write_possible_impossible(o_train, train_ds)
+countv,_ = write_possible_impossible(o_validation, validation_ds)
 
 o_train.close()
 o_validation.close()
